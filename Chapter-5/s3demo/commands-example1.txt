@@ -6,3 +6,15 @@ $ aws s3 ls s3://demo-bucket-baba/
 
 $ aws s3 cp . s3://demo-bucket-baba/ --recursive
 $ aws s3 ls s3://demo-bucket-baba/
+
+$ aws s3 mb s3://demo-bucket-baba-copied --region us-east-2 
+
+$ aws s3 mb s3://demo-bucket-baba-moved --region us-east-2 
+
+$ aws s3 cp s3://demo-bucket-baba s3://demo-bucket-baba-copied/ --recursive 
+
+$ aws s3 mv s3://demo-bucket-baba s3://demo-bucket-baba-moved/ --recursive 
+
+$ aws s3 ls  
+
+
