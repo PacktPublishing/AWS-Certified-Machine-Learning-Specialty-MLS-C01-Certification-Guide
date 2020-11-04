@@ -2,3 +2,7 @@ $ aws s3 ls
 $ aws s3 mb s3://demo-bucket-baba --region us-east-1
 $ aws s3 ls 
 $ aws s3 cp sample-file.txt s3://demo-bucket-baba/
+$ aws s3 ls s3://demo-bucket-baba/
+
+$ aws s3 cp . s3://demo-bucket-baba/ --recursive
+$ aws s3 ls s3://demo-bucket-baba/
