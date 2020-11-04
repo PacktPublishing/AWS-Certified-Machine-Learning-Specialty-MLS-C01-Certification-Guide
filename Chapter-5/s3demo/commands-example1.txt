@@ -1,0 +1,4 @@
+$ aws s3 ls 
+$ aws s3 mb s3://demo-bucket-baba --region us-east-1
+$ aws s3 ls 
+$ aws s3 cp sample-file.txt s3://demo-bucket-baba/
