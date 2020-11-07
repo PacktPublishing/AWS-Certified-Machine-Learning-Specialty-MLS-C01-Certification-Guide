@@ -17,4 +17,36 @@ $ aws s3 mv s3://demo-bucket-baba s3://demo-bucket-baba-moved/ --recursive
 
 $ aws s3 ls  
 
+$ aws s3 rb s3://demo-bucket-baba-moved --force 
 
+$ aws s3 rb s3://demo-bucket-baba-copied--force 
+---------
+$ aws s3 rm s3://test-bucket/images --recursive
+
+$ aws s3 mb s3://version-demo-mlpractice/ 
+
+$ aws s3api put-bucket-versioning --bucket version-demo-mlpractice --versioning-configuration Status=Enabled 
+
+$ aws s3api put-bucket-encryption --bucket version-demo-mlpractice --server-side-encryption-configuration '{"Rules":[{"ApplyServerSideEncryptionByDefault":{"SSEAlgorithm":"AES256"}}]}' 
+
+$ echo "Version-1">version-doc.txt 
+
+$ aws s3 cp version-doc.txt s3://version-demo-mlpractice 
+
+$ aws s3 cp s3://version-demo-mlpractice/version-doc.txt check.txt 
+
+$ cat check.txt 
+
+Version-1 
+
+$ echo "Version-2">version-doc.txt 
+
+$ aws s3 cp version-doc.txt s3://version-demo-mlpractice 
+
+$ aws s3 cp s3://version-demo-mlpractice/version-doc.txt check.txt 
+
+$ cat check.txt 
+
+$ aws s3api list-object-versions --bucket version-demo-mlpractice
+
+$ aws s3api delete-object --bucket version-demo-mlpractice --key version-doc.txt 
