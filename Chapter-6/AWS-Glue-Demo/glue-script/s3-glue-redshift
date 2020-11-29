@@ -1,0 +1,41 @@
+import sys
+from awsglue.transforms import *
+from awsglue.utils import getResolvedOptions
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.job import Job
+
+## @params: [TempDir, JOB_NAME]
+args = getResolvedOptions(sys.argv, ['TempDir','JOB_NAME'])
+
+sc = SparkContext()
+glueContext = GlueContext(sc)
+spark = glueContext.spark_session
+job = Job(glueContext)
+job.init(args['JOB_NAME'], args)
+## @type: DataSource
+## @args: [database = "s3-data", table_name = "sales_records_csv", transformation_ctx = "datasource0"]
+## @return: datasource0
+## @inputs: []
+datasource0 = glueContext.create_dynamic_frame.from_catalog(database = "s3-data", table_name = "sales_records_csv", transformation_ctx = "datasource0")
+## @type: ApplyMapping
+## @args: [mapping = [("region", "string", "region", "string"), ("country", "string", "country", "string"), ("item type", "string", "item type", "string"), ("sales channel", "string", "sales channel", "string"), ("order priority", "string", "order priority", "string"), ("order date", "string", "order date", "string"), ("order id", "long", "order id", "long"), ("ship date", "string", "ship date", "string"), ("units sold", "long", "units sold", "long"), ("unit price", "double", "unit price", "double"), ("unit cost", "double", "unit cost", "double"), ("total revenue", "double", "total revenue", "double"), ("total cost", "double", "total cost", "double"), ("total profit", "double", "total profit", "double")], transformation_ctx = "applymapping1"]
+## @return: applymapping1
+## @inputs: [frame = datasource0]
+applymapping1 = ApplyMapping.apply(frame = datasource0, mappings = [("region", "string", "region", "string"), ("country", "string", "country", "string"), ("item type", "string", "item type", "string"), ("sales channel", "string", "sales channel", "string"), ("order priority", "string", "order priority", "string"), ("order date", "string", "order date", "string"), ("order id", "long", "order id", "long"), ("ship date", "string", "ship date", "string"), ("units sold", "long", "units sold", "long"), ("unit price", "double", "unit price", "double"), ("unit cost", "double", "unit cost", "double"), ("total revenue", "double", "total revenue", "double"), ("total cost", "double", "total cost", "double"), ("total profit", "double", "total profit", "double")], transformation_ctx = "applymapping1")
+## @type: ResolveChoice
+## @args: [choice = "make_cols", transformation_ctx = "resolvechoice2"]
+## @return: resolvechoice2
+## @inputs: [frame = applymapping1]
+resolvechoice2 = ResolveChoice.apply(frame = applymapping1, choice = "make_cols", transformation_ctx = "resolvechoice2")
+## @type: DropNullFields
+## @args: [transformation_ctx = "dropnullfields3"]
+## @return: dropnullfields3
+## @inputs: [frame = resolvechoice2]
+dropnullfields3 = DropNullFields.apply(frame = resolvechoice2, transformation_ctx = "dropnullfields3")
+## @type: DataSink
+## @args: [catalog_connection = "glue-redshift-connection", connection_options = {"dbtable": "sales_records_csv", "database": "redshift-db"}, redshift_tmp_dir = TempDir, transformation_ctx = "datasink4"]
+## @return: datasink4
+## @inputs: [frame = dropnullfields3]
+datasink4 = glueContext.write_dynamic_frame.from_jdbc_conf(frame = dropnullfields3, catalog_connection = "glue-redshift-connection", connection_options = {"dbtable": "sales_records_csv", "database": "glue-dev"}, redshift_tmp_dir = args["TempDir"], transformation_ctx = "datasink4")
+job.commit()
