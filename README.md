@@ -39,7 +39,7 @@ knn.set_hyperparameters(**hyperparams)
 **Following is what you need for this book:**
 This AWS book is for professionals and students who want to prepare for and pass the AWS Certified Machine Learning Specialty exam or gain deeper knowledge of machine learning with a special focus on AWS. Beginner-level knowledge of machine learning and AWS services is necessary before getting started with this book.
 
-With the following software and hardware list you can run all code files present in the book (Chapter 1-13).
+With the following software and hardware list you can run all code files present in the book (Chapter 1-9).
 
 ### Software and Hardware List
 
