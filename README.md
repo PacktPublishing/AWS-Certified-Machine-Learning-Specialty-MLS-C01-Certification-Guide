@@ -2,7 +2,7 @@
 
 <a href="https://www.packtpub.com/product/aws-certified-machine-learning-specialty-mls-c01-certification-guide/9781800569003"><img src="https://m.media-amazon.com/images/I/51Hdy4tcDfL.jpg" alt="Book Name" height="256px" align="right"></a>
 
-This is the code repository for [AWS Certified Machine Learning Specialty: MLS-C01 Certification Guide](https://github.com/PacktPublishing/AWS-Certified-Machine-Learning-Specialty-MLS-C01-Certification-Guide), published by Packt.
+This is the code repository for [AWS Certified Machine Learning Specialty: MLS-C01 Certification Guide](https://www.packtpub.com/product/aws-certified-machine-learning-specialty-mls-c01-certification-guide/9781800569003), published by Packt.
 
 **The definitive guide to passing the MLS-C01 exam on the very first attempt**
 
@@ -54,7 +54,7 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 
 * Mastering Machine Learning on AWS[[Packt]](https://www.packtpub.com/product/mastering-machine-learning-on-aws/9781789349795) [[Amazon]](https://www.amazon.com/Mastering-Machine-Learning-AWS-TensorFlow/dp/1789349796)
 
-## Get to Know the Author(s)
+## Get to Know the Authors
 **Somanath Nanda**
 Somanath has 10 years of working experience in IT industry which includes Prod development, Devops, Design and architect products from end to end. He has also worked at AWS as a Big Data Engineer for about 2 years.
  
