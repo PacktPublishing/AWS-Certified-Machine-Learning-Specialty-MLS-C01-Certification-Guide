@@ -1,3 +1,5 @@
+<p align='center'><a href='https://www.eventbrite.com/e/algorithmic-trading-with-python-cohort-2-tickets-1833367644979?aff=oddtdtcreator'><img src='https://static.packt-cdn.com/assets/images/packt+events/Python_for_Algorithmic Trading_v1.png'/></a></p>
+
 # AWS Certified Machine Learning Specialty: MLS-C01 Certification Guide
 
 <a href="https://www.packtpub.com/product/aws-certified-machine-learning-specialty-mls-c01-certification-guide/9781800569003"><img src="https://m.media-amazon.com/images/I/51Hdy4tcDfL.jpg" alt="Book Name" height="256px" align="right"></a>
